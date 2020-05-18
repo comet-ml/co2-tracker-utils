@@ -1,0 +1,40 @@
+{% set version = "0.1.0" %}
+
+package:
+  name: co2-tracker-utils
+  version: {{ version }}
+
+source:
+  path: .
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - nvidia-ml==7.352.0 # Use same version as Pypi
+    - requests>=2.18.4
+    - typing_extensions>=3.7.4
+
+test:
+  imports:
+    - co2_tracker_utils
+    - co2_tracker_utils.gpu_logging
+    - co2_tracker_utils.cloud_logging
+
+about:
+  home: https://github.com/comet-ml/co2-tracker-utils
+  license: MIT
+  summary: 'CO2 Tracker helpers'
+  description: |
+    This module analyzes jpeg/jpeg2000/png/gif image header and
+    return image size.
+  dev_url: https://github.com/comet-ml/co2-tracker-utils
+  doc_url: https://pypi.python.org/comet-ml/co2-tracker-utils
+  doc_source_url: https://github.com/comet-ml/co2-tracker-utils/blob/master/README.md

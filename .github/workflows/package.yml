@@ -1,0 +1,27 @@
+name: package
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set up Python 3.8
+              uses: actions/setup-python@v1
+              with:
+                  python-version: 3.8
+            - name: Build pip package
+              run: |
+                  pip install -U pip wheel
+                  python setup.py sdist bdist_wheel
+            - uses: s-weigand/setup-conda@v1
+              with:
+                  activate-conda: true
+                  conda-channels: conda-forge
+            - name: Build conda package
+              run: |
+                  conda install conda-build conda-verify
+                  conda build --python 2.7 .
+                  conda build --python 3.8 .
