@@ -23,7 +23,15 @@ CO2 Tracker helpers
 Features
 ========
 
--   TODO
+-   Python2.7 and Python 3.5+.
+-   Windows, Mac OS X and Linux support for GPU logging.
+-   AWS, GCP and Azure support for Cloud metadata logging.
+
+
+Installation
+============
+
+CO2 Tracker helpers can be installed by running `pip install co2-tracker-utils` or `conda install -c conda_forge -c comet_ml co2-tracker-utils`.
 
 Credits
 =======
