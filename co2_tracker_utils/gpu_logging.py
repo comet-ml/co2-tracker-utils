@@ -126,7 +126,23 @@ def get_graphics_processes(handle):
 def get_gpu_static_info():
     """ Get all GPUs static information.
 
-    >>>
+    >>> get_gpu_static_info()
+    [
+      {
+        "compute_mode": 0,
+        "compute_processes": [],
+        "free_memory": 12787122176,
+        "gpu_utilization": 0,
+        "graphics_processes": [],
+        "name": "TITAN X (Pascal)",
+        "power_limit": 250000,
+        "power_usage": 19293,
+        "temperature": 54,
+        "total_memory": 12787122176,
+        "used_memory": 0,
+        "uuid": "GPU-7ea722eb-0247-98c5-0b33-ddb83c1a0ffb"
+      }
+    ]
     """
     try:
         pynvml.nvmlInit()
