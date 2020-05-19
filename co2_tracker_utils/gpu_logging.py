@@ -126,7 +126,16 @@ def get_graphics_processes(handle):
 def get_gpu_static_info():
     """ Get all GPUs static information.
 
-    >>>
+    >>> get_gpu_static_info()
+    [
+        {
+            "name": "Tesla V100-SXM2-16GB",
+            "uuid": "GPU-4e817856-1fb8-192a-7ab7-0e0e4476c184",
+            "total_memory": 16945512448,
+            "power_limit": 300000,
+            "gpu_index": 0,
+        }
+    ]
     """
     try:
         pynvml.nvmlInit()
@@ -156,7 +165,23 @@ def get_gpu_static_info():
 def get_gpu_details():
     """ Get all GPUs instantaneous metrics
 
-    >>>
+    >>> get_gpu_details()
+    [
+        {
+            "name": "Tesla V100-SXM2-16GB",
+            "uuid": "GPU-4e817856-1fb8-192a-7ab7-0e0e4476c184",
+            "free_memory": 16945381376,
+            "total_memory": 16945512448,
+            "used_memory": 131072,
+            "temperature": 28,
+            "power_usage": 42159,
+            "power_limit": 300000,
+            "gpu_utilization": 0,
+            "compute_mode": 0,
+            "compute_processes": [],
+            "graphics_processes": [],
+        }
+    ]
     """
     try:
         pynvml.nvmlInit()
