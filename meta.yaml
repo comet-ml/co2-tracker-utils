@@ -20,7 +20,7 @@ requirements:
     - python
     - nvidia-ml==7.352.0 # Use same version as Pypi
     - requests>=2.18.4
-    - typing_extensions>=3.7.4
+    - typing>=3.7.4
 
 test:
   imports:
@@ -33,8 +33,7 @@ about:
   license: MIT
   summary: 'CO2 Tracker helpers'
   description: |
-    This module analyzes jpeg/jpeg2000/png/gif image header and
-    return image size.
+    CO2 Tracker helpers
   dev_url: https://github.com/comet-ml/co2-tracker-utils
   doc_url: https://pypi.python.org/comet-ml/co2-tracker-utils
   doc_source_url: https://github.com/comet-ml/co2-tracker-utils/blob/master/README.md
