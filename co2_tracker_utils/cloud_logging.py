@@ -20,7 +20,7 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 from logging import getLogger
-from typing import Any, Callable, Dict, Optional, cast
+from typing import Any, Dict, Optional
 
 import requests
 
