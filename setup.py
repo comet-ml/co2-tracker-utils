@@ -35,7 +35,6 @@ requirements = [
     "nvidia-ml-py3==7.352.0",  # Use the same version as of Conda
     "requests>=2.18.4",
     "typing>=3.7.4; python_version<'3.5'",
-    "typing_extensions>=3.7.4",
 ]
 
 setup(

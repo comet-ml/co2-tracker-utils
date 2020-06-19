@@ -20,10 +20,9 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 from logging import getLogger
-from typing import Any, Callable, Dict, Optional, cast
+from typing import Any, Dict, Optional
 
 import requests
-from typing_extensions import TypedDict
 
 LOGGER = getLogger(__name__)
 
@@ -55,19 +54,9 @@ CLOUD_METADATA_MAPPING = {
     },
 }
 
-ProviderMapping = TypedDict(
-    "ProviderMapping",
-    {
-        "url": str,
-        "headers": Dict[str, str],
-        "postprocess_function": Optional[Callable[[Dict[str, Any]], Dict[str, Any]]],
-    },
-)
-CloudDetails = TypedDict("CloudDetails", {"provider": str, "metadata": Dict[str, Any]})
-
 
 def get_env_cloud_details(timeout=1):
-    # type: (int) -> Optional[CloudDetails]
+    # type: (int) -> Optional[Any]
     """
 
     >>> get_env_cloud_details()
@@ -90,7 +79,7 @@ def get_env_cloud_details(timeout=1):
     """
     for provider in CLOUD_METADATA_MAPPING.keys():
         try:
-            params = cast(ProviderMapping, CLOUD_METADATA_MAPPING[provider])
+            params = CLOUD_METADATA_MAPPING[provider]
             response = requests.get(
                 params["url"], headers=params["headers"], timeout=timeout
             )
